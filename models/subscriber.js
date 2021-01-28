@@ -15,3 +15,5 @@ const subscriberSchema = new mongoose.Schema({
 		default: Date.now(),
 	},
 });
+
+const subscriber = mongoose.model('subscriber', subscriberSchema);
