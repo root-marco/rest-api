@@ -17,3 +17,5 @@ const subscriberSchema = new mongoose.Schema({
 });
 
 const subscriber = mongoose.model('subscriber', subscriberSchema);
+
+export default subscriber;
