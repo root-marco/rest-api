@@ -15,7 +15,7 @@ const db = mongoose.connection;
 db.on('error', (error) => console.log(error));
 db.once('open', () => console.log('database connected'));
 
-app.use('subscribers', subscribersRouter);
+app.use('/subscribers', subscribersRouter);
 
 app.use(express.json());
 
