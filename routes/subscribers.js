@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
 // Getting One
 router.get('/:id', getSubscriber, (req, res) => {
 
-	res.send(res.subscriber.name);
+	res.json(res.subscriber);
 
 });
 
@@ -49,7 +49,18 @@ router.patch('/', getSubscriber, (req, res) => {
 });
 
 // Deleting One
-router.delete('/:id', getSubscriber, (req, res) => {
+router.delete('/:id', getSubscriber, async (req, res) => {
+
+	try {
+		await res.subscriber.remove();
+		res.json({
+			message: 'deleted subscriber',
+		});
+	} catch (err) {
+		res.status(500).json({
+			message: err.message,
+		});
+	}
 
 });
 
