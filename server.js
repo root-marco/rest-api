@@ -1,22 +1,23 @@
-import subscribersRouter from './routes/subscribers.js';
 import express from 'express';
 import mongoose from 'mongoose';
+
 import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
-const PORT = 3000;
 
 mongoose.connect(process.env.DATABASE_URL, {
+	useNewUrlParser: true,
 	useUnifiedTopology: true,
-	useNewUrlParser: true
 });
-const db = mongoose.connection;
-db.on('error', (error) => console.log(error));
-db.once('open', () => console.log('database connected'));
 
-app.use('/subscribers', subscribersRouter);
+const db = mongoose.connection;
+db.on('error', (error) => console.error(error));
+db.once('open', () => console.log('database connected'));
 
 app.use(express.json());
 
-app.listen(PORT, () => console.log('server running'));
+import subscribersRouter from './routes/subscribers.js';
+app.use('/subscribers', subscribersRouter);
+
+app.listen(3000, () => console.log('server running'));
