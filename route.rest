@@ -1,0 +1,26 @@
+// Getting all
+GET http://localhost:3000/subscribers
+###
+// Getting One
+GET http://localhost:3000/subscribers/601832a4171484669432f303
+###
+// Creating one
+POST http://localhost:3000/subscribers
+Content-Type: application/json
+
+{
+	"name": "Root",
+	"subscribedToChannel": "Root"
+}
+###
+// Updating One
+PATCH http://localhost:3000/subscribers/601839dbf89142716bf94e59
+Content-Type: application/json
+
+{
+	"name": "kosajdasdasasdasdsadaskj",
+	"subscribedToChannel": "marcoloaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+}
+###
+// Deleting One
+DELETE http://localhost:3000/subscribers/601839c7f89142716bf94e58
