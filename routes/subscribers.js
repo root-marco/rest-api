@@ -41,7 +41,7 @@ router.post('/', async (req, res) => {
 		});
 	}
 
-})
+});
 
 // Updating One
 router.patch('/:id', getSubscriber, async (req, res) => {
@@ -103,7 +103,6 @@ async function getSubscriber(req, res, next) {
 
 	next();
 
-}
-
+};
 
 export default router;
