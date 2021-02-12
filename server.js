@@ -4,6 +4,8 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 dotenv.config();
 
+import subscribersRouter from './routes/subscribers.js';
+
 const app = express();
 
 mongoose.connect(process.env.DATABASE_URL, {
@@ -17,7 +19,6 @@ db.once('open', () => console.log('database connected'));
 
 app.use(express.json());
 
-import subscribersRouter from './routes/subscribers.js';
 app.use('/subscribers', subscribersRouter);
 
 app.listen(3000, () => console.log('server running'));
